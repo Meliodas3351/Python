@@ -8,6 +8,8 @@ try:
     res = requests.get("http://api.openweathermap.org/data/2.5/find",
                  params={'q': s_city, 'type': 'like', 'units': 'metric', 'APPID': appid})
     data = res.json()
+    print(res.url)
+
     # получаем пакет в формате JSON.
     # Разбираем пакет и получаем нужные значения по названиям полей
     cities = ["{} ({})".format(d['name'], d['sys']['country'])
@@ -26,6 +28,7 @@ try:
     for i in data['list']:
         print(i['dt_txt'], '{0:+5.0f}'.format(i['main']['temp']), i['weather'][0]['description'])
         #Часть до точки определяет минимальную ширину,Часть после точки урезает десятичную часть
+    print(res.url)
 except Exception as e:
     #print("Exception (forecast):", e)
     pass
