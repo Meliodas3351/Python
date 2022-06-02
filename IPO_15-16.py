@@ -56,6 +56,7 @@ class ElectricCar(ABC):
         print("Car traveled " + x + " kilometres")
 
     def update_charge_dekorator(func):
+
         def inner_method(self, new_charge):
             print("Decorator body")
             return func(self, new_charge)
